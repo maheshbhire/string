@@ -1,0 +1,22 @@
+class Solution {
+public:
+    bool canConstruct(string ransomNote, string magazine) {
+        
+          unordered_map<char,int>mp;
+          for(char X:magazine){
+            mp[X]++;
+          }
+
+             for(char C:ransomNote){
+                if((mp.find(C)!=mp.end()) && (mp[C]>0)){
+                    mp[C]--;
+                }
+                else{
+                    return false;
+                }
+
+             }
+             return true;
+        
+    }
+};
